@@ -9,17 +9,26 @@
     error_reporting(E_ALL);
 
 
-    class CalculateWeight{
+    class CalculateBag{
         public $items = [];
 
         function __construct(){
             foreach ($_SESSION as $key => $value) {
                 if ($key !== "submit") {
-                    $items[$key] = $value;
+                    $this->items[$key] = $value;
                 }
             }
+        }
+        public function showBag(){
+          foreach ($this->items as $key => $value) {
+            echo $key . ", ";
+
+          }
         }
 
     }
 
-$saker = new CalculateWeight();
+$saker = new CalculateBag();
+
+echo "Du har med dig: ";
+$saker->showBag();
