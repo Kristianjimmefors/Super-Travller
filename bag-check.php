@@ -19,6 +19,7 @@
                 }
             }
         }
+
         public function calculateWheight(){
             if( array_sum($this->items) < 20 ){
                 echo "<p>Väskan är inte för tung</p>";
@@ -27,7 +28,17 @@
                 echo "väskan väger för mycket";
             }
         }
+        public function showBag(){
+          foreach ($this->items as $key => $value) {
+            echo $key . ", ";
+
+          }
+        }
+
     }
 
 $saker = new CalculateBag();
 echo $saker->calculateWheight();
+echo "Du har med dig: ";
+$saker->showBag();
+
